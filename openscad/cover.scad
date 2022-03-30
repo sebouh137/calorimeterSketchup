@@ -32,5 +32,5 @@ if(cover_all_layers){
                 mirror([0,1,0]) cover(hole_radius=bpc_hole_radius( layer_number));
             }
 } else {
-    translate([cover_position,0,0])  pcb(hole_radius=bpc_hole_radius(cblock_layer));
+    translate([cover_position,0,0])  cover(hole_radius=bpc_hole_radius(cblock_layer));
 }

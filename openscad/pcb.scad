@@ -18,7 +18,7 @@ module pcb(hole_radius,thickness=pcb_thickness, height=pcb_height, width=pcb_wid
             if(make_sipms) for(r = [hole_radius+scint_cell_dr/2:scint_cell_dr:diagonal]) {
                 for(phi = [90+delta_phi/2:delta_phi:270]) {
                     if(abs(r*cos(phi))<width+inner_gap-scint_cell_center_min_distance_from_edge && abs(r*sin(phi))<height/2-scint_cell_center_min_distance_from_edge) {
-                    translate([r*cos(phi),-thickness/2-sipm_height/2,r*sin(phi)]) color("grey") cube([sipm_width, sipm_depth, sipm_height],center=true);
+                    translate([r*cos(phi),+thickness/2+(sipm_depth-epsilon)/2,r*sin(phi)]) color("grey") cube([sipm_width, sipm_depth+epsilon, sipm_height],center=true);
                     }
                 }
             }
